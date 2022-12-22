@@ -1,8 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500;1,700&display=swap");
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 body {
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, #5BA199, #E5E3E4);
+  background: linear-gradient(-45deg, #469597, #5BA199, #BBC6C8, #DDBEAA);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
 }
 body header {
   display: grid;
@@ -20,6 +45,28 @@ body header h1 {
   grid-area: 1/2/2/3;
   font-family: "Josefin Sans", sans-serif;
   font-size: 10vw;
+  text-decoration: none;
+  position: relative;
+}
+body header h1:hover {
+  color: #000;
+  font-size: 10.5vw;
+  transition: 0.5s ease;
+}
+body header h1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5vw;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+body header h1:hover::before {
+  transform: scaleX(1);
 }
 body header #add {
   background: none;
@@ -83,6 +130,10 @@ body main .weather h2 {
   margin-left: 5%;
   margin-bottom: -10%;
 }
+body main .weather h2:hover {
+  font-size: 8.5vw;
+  transition: 0.5s;
+}
 body main .weather .tempToday {
   grid-area: 2/1/3/2;
   font-size: 7vw;
@@ -91,16 +142,30 @@ body main .weather .tempToday {
   padding-right: 25%;
   text-align: center;
 }
+body main .weather .tempToday:hover {
+  font-size: 7.5vw;
+  transition: 0.5s;
+}
 body main .weather .tempToday .logotemp {
   margin-top: auto;
   margin-left: 10%;
   width: 30%;
   height: auto;
 }
+body main .weather .tempToday .logotemp:hover {
+  width: 33%;
+  height: auto;
+  transition: 0.5s;
+}
 body main .weather .alltemp {
   grid-area: 1/2/3/3;
   font-size: 6vw;
   margin-top: 10%;
+}
+body main .weather .alltemp:hover {
+  margin-top: 5%;
+  font-size: 6.5vw;
+  transition: 0.5s;
 }
 body main .weather:hover {
   opacity: 1;

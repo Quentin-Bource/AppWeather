@@ -194,7 +194,7 @@ function createTime() {
 }
 
 document.getElementById('add').addEventListener('click',createTime)
-
+//retirer une carte ville
 window.onload= function del () {
     let click = document.getElementsByClassName('delete')
     for (let i = 0; i < click.length; i++){

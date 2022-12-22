@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500;1,700&display=swap');
 
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 body {
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, #5BA199 , #E5E3E4);
+    background: linear-gradient(-45deg, #469597, #5BA199, #BBC6C8, #DDBEAA);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+
 
     header { 
         display: grid;
@@ -21,6 +37,29 @@ body {
             grid-area: 1 / 2 / 2 / 3;
             font-family: 'Josefin Sans', sans-serif;
             font-size: 10vw;
+            text-decoration: none;
+            position: relative;
+            &:hover {
+                color: #000;
+                font-size: 10.5vw;
+                transition: 0.5s ease ;
+              }
+            &::before {
+                
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 1.5vw;
+                bottom: 0;
+                left: 0;
+                background-color: #000;
+                transform: scaleX(0);
+                transition: transform 0.5s ease;
+              }
+              &:hover::before {
+                transform: scaleX(1);
+              }
             
         }
         #add {
@@ -93,6 +132,11 @@ body {
                 margin-top: 5%;
                 margin-left: 5%;
                 margin-bottom: -10%;
+
+                &:hover {
+                    font-size: 8.5vw;
+                    transition: 0.5s;
+                }
             }
             .tempToday {
                 grid-area: 2 / 1 / 3 / 2;
@@ -101,12 +145,21 @@ body {
                 margin-left: 10%;
                 padding-right: 25%;
                 text-align: center;
+                &:hover {
+                    font-size: 7.5vw;
+                    transition: 0.5s;
+                }
                 .logotemp{
                    
                     margin-top: auto;
                     margin-left: 10%;
                     width: 30%;
                     height: auto;
+                    &:hover {
+                        width: 33%;
+                        height: auto;
+                        transition: 0.5s;
+                    }
 
                 }
                 
@@ -114,7 +167,15 @@ body {
             .alltemp {
                 grid-area: 1 / 2 / 3 / 3;;
                 font-size: 6vw;
-                margin-top: 10%;
+                margin-top: 10%; 
+
+                &:hover {
+                    margin-top: 5%;
+                    font-size: 6.5vw;
+                    transition: 0.5s;
+                } 
+               
+                
             }
             &:hover {
                 opacity: 1;
@@ -125,3 +186,4 @@ body {
     }
 
 }
+
