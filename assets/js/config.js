@@ -6,11 +6,11 @@ async function catchData()
 {
     let tmp = JSON.parse(localStorage.getItem("response"));
     //const response = await fetch(
-    //'https://api.openweathermap.org/data/2.5/forecast?q=Namur&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
-     //{
-     //     method: 'GET'
-     // }
-     //);
+    //'https://api.openweathermap.org/data/2.5/forecast?q=Mumbai&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
+    // {
+    //      method: 'GET'
+    //  }
+    // );
     //let stock = await response.json();
     stock = tmp;
     console.log(stock);
@@ -195,5 +195,21 @@ function createTime() {
 
 document.getElementById('add').addEventListener('click',createTime)
 
+window.onload= function del () {
+    let click = document.getElementsByClassName('delete')
+    for (let i = 0; i < click.length; i++){
+        let clicks  =  click[i];
+        clicks.onclick = function() {
+        let remov = document.getElementsByClassName('weather')
+        for (let x = 0 ; x < remov.length; x++ ) {
+        let removs = remov[x];
+        
+        if (i == x)
+        removs.remove()
+        }
+    }
+    }
 
 
+    setTimeout(del , 500)
+}
