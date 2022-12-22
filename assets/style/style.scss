@@ -1,11 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500;1,700&display=swap');
+
 body {
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(35,14,195,1) 0%, rgba(176,228,233,1));
+    background: linear-gradient(0deg, #5BA199 , #E5E3E4);
 
-    header {
+    header { 
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        
+        #logo {
+            grid-area: 1 / 1 / 2 / 2;
+            align-items: center;
+            width: 70%;
+            height: auto;
+        }
         h1 {
             text-align: center;
+            grid-area: 1 / 2 / 2 / 3;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 10vw;
+            
+        }
+        #add {
+            background: none;
+            border: none;
+            #cross {
+                width: 12vw;
+                height: auto;
+            }
+
+        }
+    }
+
+    main {
+        .weather {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            border-radius: 30%;
+            border: solid #BBC6C8 5px;
+            opacity: 0.8;
+            margin: 4%;
+            margin-bottom: 8%;
+            padding: 4%;
+            font-family: 'Josefin Sans', sans-serif;
+            .delete{ 
+                width: 8vw;
+                height: auto;
+                border-radius: 50%;
+                    .imgDelete {
+                        width: 5vw;
+                        height: auto;
+                    }
+
+
+            }
+            h2 {
+                grid-area: 1 / 1 / 2 / 2;
+                font-size: 8vw;
+                margin-top: 5%;
+                margin-left: 5%;
+                margin-bottom: -10%;
+            }
+            .tempToday {
+                grid-area: 2 / 1 / 3 / 2;
+                font-size: 7vw;
+                margin-top: 5%;
+                margin-left: 10%;
+                padding-right: 25%;
+                text-align: center;
+                .logotemp{
+                   
+                    margin-top: auto;
+                    margin-left: 10%;
+                    width: 30%;
+                    height: auto;
+
+                }
+                
+            }
+            .alltemp {
+                grid-area: 1 / 2 / 3 / 3;
+                font-size: 6vw;
+                margin-top: 10%;
+            }
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 

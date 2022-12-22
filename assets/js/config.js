@@ -6,11 +6,11 @@ async function catchData()
 {
     let tmp = JSON.parse(localStorage.getItem("response"));
     //const response = await fetch(
-     //  'https://api.openweathermap.org/data/2.5/forecast?q=London&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
-     //  {
-      //     method: 'GET'
-      //  }
-    // );
+    //'https://api.openweathermap.org/data/2.5/forecast?q=Namur&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
+     //{
+     //     method: 'GET'
+     // }
+     //);
     //let stock = await response.json();
     stock = tmp;
     console.log(stock);
@@ -42,8 +42,18 @@ function createTime() {
    // temperature actuelle + date
    let newTemp = document.createElement('div')
    newTemp.classList.add('tempToday')
-   newTemp.appendChild(document.createTextNode(allTimes[0].dt_txt.split('-')[2].split(' ')[0] + '/' + allTimes[0].dt_txt.split('-')[1]+ " " + allTimes[0].main.temp.toFixed(0) + '°C'))
+   newTemp.appendChild(document.createTextNode(allTimes[0].dt_txt.split('-')[2].split(' ')[0] + '/' + allTimes[0].dt_txt.split('-')[1]+ " "  + allTimes[0].main.temp.toFixed(0) + '°c'))
    newDiv.appendChild(newTemp)
+
+   //delete button
+   let newDel = document.createElement('button')
+   newDel.classList.add('delete')
+   newDiv.appendChild(newDel)
+   //img button 
+   let imgDel = document.createElement('img')
+   imgDel.classList.add('imgDelete')
+   imgDel.setAttribute('src', 'assets/img/delete.png')
+   newDel.appendChild(imgDel)
 
    // les 5 prochain jour tout
    let newDay = document.createElement('div')
@@ -84,59 +94,102 @@ function createTime() {
     if (newDate.getDate() == (date.getDate()+1) && newDate.getHours() == 6) {
 
         newDay1.appendChild(document.createTextNode(jourSem[newDate.getDay()] + ' '))
-        newDay1.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay1.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+1) && newDate.getHours() == 15){
 
-        newDay1.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay1.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
      else if (newDate.getDate() == (date.getDate()+2) && newDate.getHours() == 6) {
         newDay2.appendChild(document.createTextNode(jourSem[newDate.getDay()] + ' '))
-        newDay2.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay2.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+2) && newDate.getHours() == 15){
 
-        newDay2.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay2.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
 
     else if (newDate.getDate() == (date.getDate()+3) && newDate.getHours() == 6) {
         newDay3.appendChild(document.createTextNode(jourSem[newDate.getDay()] + ' '))
-        newDay3.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay3.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+3) && newDate.getHours() == 15){
 
-        newDay3.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay3.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
 
     else if (newDate.getDate() == (date.getDate()+4) && newDate.getHours() == 6) {
+
         newDay4.appendChild(document.createTextNode(jourSem[newDate.getDay()] + ' '))
-        newDay4.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay4.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+4) && newDate.getHours() == 15){
 
-        newDay4.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay4.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+5) && newDate.getHours() == 6) {
+
         newDay5.appendChild(document.createTextNode(jourSem[newDate.getDay()] + ' '))
-        newDay5.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay5.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
     }
     else if (newDate.getDate() == (date.getDate()+5) && newDate.getHours() == 15){
 
-        newDay5.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + " °C "))
+        newDay5.appendChild(document.createTextNode(elem.main.temp.toFixed(0) + "°c "))
 
     }
     
    }
+   //Background color a la création
+   let bgColor = document.getElementsByClassName('weather')
+   let logoTemp = document.createElement('img')
+   logoTemp.classList.add('logotemp')
 
+   for (let bg of bgColor)
+ 
+   if(allTimes[0].weather[0].main == "Clouds") {
+       bg.style.background = 'url(/assets/img/clouds.jpg)'
+       bg.style.backgroundSize = 'cover'
+       logoTemp.setAttribute('src','/assets/img/cloudslogo.png')
+       
+   }
 
-
+   else if(allTimes[0].weather[0].main == "Thunderstorm") {
+    bg.style.background = 'url(/assets/img/thunderstorm.jpg)'
+    bg.style.backgroundSize = 'cover'
+    logoTemp.setAttribute('src','/assets/img/thunderstormlogo.png')
 }
-document.getElementById('check').addEventListener('click',createTime)
-
-function bgCity() {
-
-    if(allTimes[0]) {
-        document.getElementsByClassName('weather').style.backgroundColor = 'red'
+    else if(allTimes[0].weather[0].main == "Drizzle") {
+    bg.style.background = 'url(/assets/img/rain.jpg)'
+    bg.style.backgroundSize = 'cover'
+    logoTemp.setAttribute('src','/assets/img/rainlogo.png')
+}
+    else if (allTimes[0].weather[0].main == "Rain") {
+        bg.style.background = 'url(/assets/img/rain.jpg)'
+        bg.style.backgroundSize = 'cover'
+        logoTemp.setAttribute('src','/assets/img/rainlogo.png')
     }
-    console.log(allTimes[0])
+    else if (allTimes[0].weather[0].main == "Snow") {
+        bg.style.background = 'url(/assets/img/snow.jpg)'
+        bg.style.backgroundSize = 'cover'
+        logoTemp.setAttribute('src','/assets/img/snowlogo.png')
+    }
+    else if (allTimes[0].weather[0].main == "Mist") {
+        bg.style.background = 'url(/assets/img/mist.jpg)'
+        bg.style.backgroundSize = 'cover'
+        logoTemp.setAttribute('src','/assets/img/mistlogo.png')
+    }
+    else if (allTimes[0].weather[0].main == "Clear") {
+        bg.style.background = 'url(/assets/img/clearSky.jpg)'
+        bg.style.backgroundSize = 'cover'
+        logoTemp.setAttribute('src','/assets/img/sunlogo.png')
+    }
+    
+    newTemp.appendChild(logoTemp)
+
+
 }
+
+document.getElementById('add').addEventListener('click',createTime)
+
+
+
