@@ -45,20 +45,22 @@ function createTime() {
    newTemp.appendChild(document.createTextNode(allTimes[0].dt_txt.split('-')[2].split(' ')[0] + '/' + allTimes[0].dt_txt.split('-')[1]+ " "  + allTimes[0].main.temp.toFixed(0) + '°c'))
    newDiv.appendChild(newTemp)
 
-   //delete button
-   let newDel = document.createElement('button')
-   newDel.classList.add('delete')
-   newDiv.appendChild(newDel)
-   //img button 
-   let imgDel = document.createElement('img')
-   imgDel.classList.add('imgDelete')
-   imgDel.setAttribute('src', 'assets/img/delete.png')
-   newDel.appendChild(imgDel)
+       //delete button
+       let newDel = document.createElement('button')
+       newDel.classList.add('delete')
+       newDiv.appendChild(newDel)
+       //img button 
+        let imgDel = document.createElement('img')
+       imgDel.classList.add('imgDelete')
+       imgDel.setAttribute('src', 'assets/img/delete.png')
+       newDel.appendChild(imgDel)
 
    // les 5 prochain jour tout
    let newDay = document.createElement('div')
    newDay.classList.add('alltemp')
    newDiv.appendChild(newDay)
+
+ 
 
    // 1 jour
    let newDay1 = document.createElement('div')
@@ -84,6 +86,8 @@ function createTime() {
       let newDay5 = document.createElement('div')
       newDay5.classList.add('temp5')
       newDay.appendChild(newDay5)
+
+
 
     //Creation des différentes temperature de la semaine am/pm
 

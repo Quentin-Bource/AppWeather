@@ -47,11 +47,19 @@ body {
             padding: 4%;
             font-family: 'Josefin Sans', sans-serif;
             .delete{ 
-                width: 8vw;
-                height: auto;
+                grid-area: 1 / 2 / 2 / 3;
+                width: 10vw;
+                height: 6vh;
+                position: relative;
+                left: 85%;
+                bottom: 25%;
+                background-color: #E5E3E4 ;
                 border-radius: 50%;
+                    &:hover{
+                        background-color: #BBC6C8;
+                    }
                     .imgDelete {
-                        width: 5vw;
+                        width: 6vw;
                         height: auto;
                     }
 
@@ -82,7 +90,7 @@ body {
                 
             }
             .alltemp {
-                grid-area: 1 / 2 / 3 / 3;
+                grid-area: 1 / 2 / 3 / 3;;
                 font-size: 6vw;
                 margin-top: 10%;
             }

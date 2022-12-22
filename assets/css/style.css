@@ -42,12 +42,20 @@ body main .weather {
   font-family: "Josefin Sans", sans-serif;
 }
 body main .weather .delete {
-  width: 8vw;
-  height: auto;
+  grid-area: 1/2/2/3;
+  width: 10vw;
+  height: 6vh;
+  position: relative;
+  left: 85%;
+  bottom: 25%;
+  background-color: #E5E3E4;
   border-radius: 50%;
 }
+body main .weather .delete:hover {
+  background-color: #BBC6C8;
+}
 body main .weather .delete .imgDelete {
-  width: 5vw;
+  width: 6vw;
   height: auto;
 }
 body main .weather h2 {
