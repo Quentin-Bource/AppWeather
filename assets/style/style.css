@@ -408,14 +408,14 @@ body main .weather:hover {
   }
   body main .weather .tempToday {
     grid-area: 2/1/3/2;
-    font-size: 2.5vw;
+    font-size: 2.3vw;
     margin-top: 5%;
     margin-left: 10%;
     padding-right: 25%;
     text-align: center;
   }
   body main .weather .tempToday:hover {
-    font-size: 3vw;
+    font-size: 2.5vw;
     transition: 0.5s;
   }
   body main .weather .tempToday .logotemp {
