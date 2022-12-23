@@ -11,15 +11,15 @@ async function catchData()
     let city = inputValue
 
 
-    let tmp = JSON.parse(localStorage.getItem("response"));
-    //const response = await fetch(
-    //    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric`,
-    // {
-    //      method: 'GET'
-    //  }
-    // );
-    //let stock = await response.json();
-    stock = tmp;
+    //let tmp = JSON.parse(localStorage.getItem("response"));
+    const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric`,
+     {
+          method: 'GET'
+      }
+     );
+    let stock = await response.json();
+    //stock = tmp;
     console.log(stock);
     localStorage.setItem('response', JSON.stringify(stock));
     allTimes = stock.list;
@@ -154,9 +154,11 @@ async function catchData()
    let logoTemp = document.createElement('img')
    logoTemp.classList.add('logotemp')
 
-   for (let bg of bgColor)
+   let i = 0;
+
+   let bg = bgColor[bgColor.length -1]
  
-   if(allTimes[0].weather[0].main == "Clouds") {
+   if(allTimes[i].weather[0].main == "Clouds") {
        bg.style.background = 'url(/assets/img/clouds.jpg)'
        bg.style.backgroundSize = 'cover'
        logoTemp.setAttribute('src','/assets/img/cloudslogo.png')
@@ -196,11 +198,9 @@ async function catchData()
     
     newTemp.appendChild(logoTemp)
 
-    
-    
-    
-   
 }
+    
+
 
 document.getElementById('chooseCity').addEventListener('keydown',function (e){
     if (e.key == "Enter")  
