@@ -158,7 +158,7 @@ async function catchData()
 
    let bg = bgColor[bgColor.length -1]
  
-   if(allTimes[i].weather[0].main == "Clouds") {
+   if(allTimes[0].weather[0].main == "Clouds") {
        bg.style.background = 'url(/assets/img/clouds.jpg)'
        bg.style.backgroundSize = 'cover'
        logoTemp.setAttribute('src','/assets/img/cloudslogo.png')
