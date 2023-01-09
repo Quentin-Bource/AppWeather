@@ -4,15 +4,15 @@ let allTimes = [];
 
 async function catchData()
 {
-    let tmp = JSON.parse(localStorage.getItem("response"));
-    //const response = await fetch(
-    //'https://api.openweathermap.org/data/2.5/forecast?q=Namur&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
-     //{
-     //     method: 'GET'
-     // }
-     //);
-    //let stock = await response.json();
-    stock = tmp;
+    // let tmp = JSON.parse(localStorage.getItem("response"));
+    const response = await fetch(
+    'https://api.openweathermap.org/data/2.5/forecast?q=Namur&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
+     {
+         method: 'GET'
+     }
+     );
+    let stock = await response.json();
+    // stock = tmp;
     console.log(stock);
     localStorage.setItem('response', JSON.stringify(stock));
     allTimes = stock.list;
