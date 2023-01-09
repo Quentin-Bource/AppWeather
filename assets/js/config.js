@@ -4,26 +4,32 @@ let allTimes = [];
 
 async function catchData()
 {
-    // let tmp = JSON.parse(localStorage.getItem("response"));
+    //récuperer l'input
+    let input = document.getElementById('chooseCity');
+    let inputValue = input.value;
+
+    let city = inputValue
+
+
+    //let tmp = JSON.parse(localStorage.getItem("response"));
     const response = await fetch(
-    'https://api.openweathermap.org/data/2.5/forecast?q=Namur&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric',
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d6972f200ed637ee7fd868fe68f3bf7e&units=metric`,
      {
-         method: 'GET'
-     }
+          method: 'GET'
+      }
      );
     let stock = await response.json();
-    // stock = tmp;
+    //stock = tmp;
     console.log(stock);
     localStorage.setItem('response', JSON.stringify(stock));
     allTimes = stock.list;
     console.log(" " + allTimes[0].dt_txt + " " +  allTimes[0].main.temp + " " + allTimes[0].weather[0].description + " " + stock.city.name);
 
-} 
-
-catchData()
 
 
-function createTime() {
+
+
+
 
     let date = new Date (allTimes[0].dt_txt)
     console.log(date.getDate())
@@ -148,7 +154,9 @@ function createTime() {
    let logoTemp = document.createElement('img')
    logoTemp.classList.add('logotemp')
 
-   for (let bg of bgColor)
+   let i = 0;
+
+   let bg = bgColor[bgColor.length -1]
  
    if(allTimes[0].weather[0].main == "Clouds") {
        bg.style.background = 'url(/assets/img/clouds.jpg)'
@@ -190,10 +198,49 @@ function createTime() {
     
     newTemp.appendChild(logoTemp)
 
+}
+    
+
+
+document.getElementById('chooseCity').addEventListener('keydown',function (e){
+    if (e.key == "Enter")  
+    catchData()}) ;
+
+
+
+
+
+function vis() {
+    let chooCity = document.getElementById('chooseCity')
+
+    if  (chooCity.style.display == 'block')  {
+        chooCity.style.display = 'none'
+    }
+    else {
+        chooCity.style.display = 'block'
+    }
 
 }
+ 
+document.getElementById('add').addEventListener('click' , vis);
 
-document.getElementById('add').addEventListener('click',createTime)
+
+//retirer une carte ville
+window.onload= function del () {
+    let click = document.getElementsByClassName('delete')
+    for (let i = 0; i < click.length; i++){
+        let clicks  =  click[i];
+        clicks.onclick = function() {
+        let remov = document.getElementsByClassName('weather')
+        for (let x = 0 ; x < remov.length; x++ ) {
+        let removs = remov[x];
+        
+        if (i == x)
+        removs.remove()
+        }
+    }
+    }
 
 
-
+    setTimeout(del , 500)
+}
