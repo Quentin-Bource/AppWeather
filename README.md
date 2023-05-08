@@ -4,15 +4,14 @@ AppWeather est un projet JavaScript qui utilise l'API OpenWeatherMap pour fourni
 ## Installation
 Pour installer AppWeather, vous pouvez suivre ces instructions:
 
-Clonez le dépôt Git de AppWeather sur votre machine locale.
-Dans le terminal, accédez au répertoire du projet avec la commande cd appweather.
-Exécutez un serveur en direct (live server) pour lancer l'application.
+- Clonez le dépôt Git de AppWeather sur votre machine locale.
+- Exécutez un serveur en direct (live server) pour lancer l'application.
 ## Utilisation
 L'utilisation d'AppWeather est très simple:
 
-Appuyez sur le bouton + pour ajouter une nouvelle ville.
-Entrez le nom de la ville pour laquelle vous souhaitez voir la météo.
-Appuyez sur le bouton Search pour afficher les prévisions météorologiques pour les 5 prochains jours.
+- Appuyez sur le bouton + pour ajouter une nouvelle ville.
+- Entrez le nom de la ville pour laquelle vous souhaitez voir la météo.
+- Appuyez sur le bouton Search pour afficher les prévisions météorologiques pour les 5 prochains jours.
 ## Fonctionnalités
 AppWeather permet aux utilisateurs de:
 
