@@ -12,6 +12,8 @@ L'utilisation d'AppWeather est très simple:
 - Appuyez sur le bouton + pour ajouter une nouvelle ville.
 - Entrez le nom de la ville pour laquelle vous souhaitez voir la météo.
 - Appuyez sur le bouton Search pour afficher les prévisions météorologiques pour les 5 prochains jours.
+
+<img width="1506" alt="Accueil site" src="https://github.com/Quentin-Bource/AppWeather/blob/main/WeatherApp.png">
 ## Fonctionnalités
 AppWeather permet aux utilisateurs de:
 
