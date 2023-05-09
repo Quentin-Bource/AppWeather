@@ -1,6 +1,8 @@
 # AppWeather
 AppWeather est un projet JavaScript qui utilise l'API OpenWeatherMap pour fournir les prévisions météorologiques pour une ville donnée. Il s'agit de notre premier projet utilisant une API.
 
+lien site web : https://quentin-bource.github.io/AppWeather/
+
 ## Installation
 Pour installer AppWeather, vous pouvez suivre ces instructions:
 
